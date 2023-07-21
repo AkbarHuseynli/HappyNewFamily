@@ -84,28 +84,19 @@ public class Family {
     }
 
     public boolean deleteChild(Human child) {
-        int index = -1;
         boolean status = false;
         int l = this.children.length;
         for (int i = 0; i < l; i++) {
             if (children[i].equals(child)) {
-                index = i;
-            }
-        }
-        if (index >= 0 && index < l) {
-            this.children[index] = null;
-            Human[] newChildren = new Human[l - 1];
-            int j = 0;
-            for (int i = 0; i < l; i++) {
-                if (this.children[i] != null) {
-                    newChildren[j] = this.children[i];
-                    j++;
-                }
+                this.children[i] = null;
 
+                Human temp = this.children[l - 1];
+                this.children[l - 1] = this.children[i];
+                this.children[i] = temp;
+                status = true;
             }
-            this.children = newChildren;
-            status = true;
         }
+        this.children = Arrays.copyOf(this.children, l - 1);
 
         return status;
     }
@@ -121,7 +112,7 @@ public class Family {
 
     @Override
     public String toString() {
-        return  "mother=" + mother.getName() + ", father=" + father.getName() + ", children=" + Arrays.toString(children) + ", pet=" + pet.getNickname();
+        return "mother=" + mother.getName() + ", father=" + father.getName() + ", children=" + Arrays.toString(children) + ", pet=" + pet.getNickname();
     }
 
     @Override

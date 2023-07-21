@@ -26,7 +26,7 @@ public class Main {
         Human[] children = {son, daughter};
 
         Human son2 = new Human("Alex", "Diar", 3);
-        Pet pet = new Pet(CAT,"RICKO",2,76);
+        Pet pet = new Pet(CAT, "RICKO", 2, 76);
 
         Family diars = new Family(mother, father);
 
@@ -36,13 +36,14 @@ public class Main {
         daughter.setFamily(diars);
         diars.setChildren(children);
         diars.setPet(pet);
-        
-        System.out.println(daughter.getFamily().toString());
-        daughter.feedPet(true);
-        son.describePet();
+        System.out.println("BEFORE:");
+        System.out.println(Arrays.toString(diars.getChildren()));
+        System.out.println("AFTER:");
+        diars.deleteChild(daughter);
+        System.out.println(Arrays.toString(diars.getChildren()));
 
-        int x =diars.countFamily();
-        System.out.println("FAMILY MEMBER COUNT: "+x);
-        
+        int x = diars.countFamily();
+        System.out.println("FAMILY MEMBER COUNT: " + x);
+
     }
 }
