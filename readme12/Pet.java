@@ -93,12 +93,19 @@ public class Pet {
 
     @Override
     public String toString() {
-        return type + ", nickname=" + nickname + ", age=" + age + ", trickLevel=" + trickLevel + ", habits=" + Arrays.toString(habits);
+        return type + ", nickname=" + nickname + 
+                ", age=" + age + ", trickLevel=" + trickLevel + 
+                ", habits=" + Arrays.toString(habits) +
+                ", canFly=" + this.type.isCanFly()+
+                ", hasFur=" + this.type.HasFur()+
+                ", numberOfLegs=" + this.type.getNumberOfLegs();
     }
+
+   
+    
 
     @Override
     protected void finalize() throws Throwable {
-        super.finalize(); //To change body of generated methods, choose Tools | Templates.
         System.out.println("PET CLEANUP ");
     }
 }
