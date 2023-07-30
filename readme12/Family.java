@@ -109,7 +109,17 @@ public class Family {
         }
         return l + x + 2;
     }
-
+    @Override
+    public Human bornchild() {
+        int rn= ThreadLocalRandom.current().nextInt(1, 3);
+        Human child =  rn == 1 ? new Man() : new Woman();
+        child.setSurname(this.getFather().getSurname());
+        child.setIQ((this.getFather().getIQ()+this.getMother().getIQ())/2);
+        child.setAge(0);
+        child.setFamily(this);
+        addChild(child);
+        return child;
+        }
     @Override
     public String toString() {
         return "mother=" + mother.getName() + ", father=" + father.getName() + ", children=" + Arrays.toString(children) + ", pet=" + pet.getNickname();
