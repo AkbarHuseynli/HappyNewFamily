@@ -6,7 +6,6 @@
 package species;
 
 import readme.Pet;
-import readme.Species;
 
 /**
  *

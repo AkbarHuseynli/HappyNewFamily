@@ -17,9 +17,6 @@ public class Man extends Human {
         super(name, surname, age);
     }
 
-    public Man(String name, String surname, int year, int IQ, HashMap<DayOfWeek, String>[] schedule, Family family) {
-        super(name, surname, year, IQ, schedule, family);
-    }
 
     public Man() {
     }

@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Random;
+import util.Methods;
 
 /**
  *
@@ -30,15 +31,6 @@ public abstract class Human {
         this.name = name;
         this.surname = surname;
         this.year = age;
-    }
-
-    public Human(String name, String surname, int year, int IQ, HashMap<DayOfWeek, String>[] schedule, Family family) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.IQ = IQ;
-        this.schedule = schedule;
-        this.family = family;
     }
 
     public Human() {
@@ -100,15 +92,9 @@ public abstract class Human {
     public abstract void greetPet();
 
     public void describePet() {
-        String slyLevel = "";
         int sl = this.family.getPet().getTrickLevel();
 
-        if (sl > 50) {
-            slyLevel = "very sly";
-        } else if (sl < 50) {
-            slyLevel = "almost not sly";
-
-        }
+        String slyLevel = sl > 50 ? "very sly" : "almost not sly";
 
         System.out.println("I have a " + this.family.getPet().getNickname()
                 + ", he is " + this.family.getPet().getAge()
@@ -119,10 +105,9 @@ public abstract class Human {
     public boolean feedPet(boolean feedingTime) {
         if (feedingTime) {
 
-            Random rand = new Random();
-            int randomNum = 1 + rand.nextInt((99) + 1);
+            int rn = Methods.randomNum(1, 99);
 
-            if (this.getFamily().getPet().getTrickLevel() > randomNum) {
+            if (this.getFamily().getPet().getTrickLevel() > rn) {
                 System.out.println("Hm... I will feed " + this.getFamily().getPet().getNickname());
                 return true;
             } else {

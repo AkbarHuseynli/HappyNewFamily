@@ -7,7 +7,7 @@ package readme;
 
 import java.util.Arrays;
 import java.util.Random;
-import static readme.Species.DOG;
+import static species.Species.DOG;
 import species.Dog;
 import species.Fish;
 

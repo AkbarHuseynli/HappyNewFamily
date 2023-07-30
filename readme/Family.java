@@ -70,6 +70,7 @@ public class Family implements HumanCreator {
     public boolean deleteChild(int index) {
         boolean status = false;
         int l = this.children.length;
+        
         if (index >= 0 && index < l) {
             this.children[index] = null;
             Human[] newChildren = new Human[l - 1];
