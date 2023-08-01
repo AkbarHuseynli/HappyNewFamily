@@ -89,34 +89,34 @@ public abstract class Human {
         this.family = family;
     }
 
-    public abstract void greetPet();
+    public abstract void greetPet(Pet pet);
 
-    public void describePet() {
-        int sl = this.family.getPet().getTrickLevel();
+    public void describePet(Pet pet) {
+        int sl = pet.getTrickLevel();
 
         String slyLevel = sl > 50 ? "very sly" : "almost not sly";
 
-        System.out.println("I have a " + this.family.getPet().getNickname()
-                + ", he is " + this.family.getPet().getAge()
+        System.out.println("I have a " + pet.getNickname()
+                + ", he is " + pet.getAge()
                 + " years old,"
                 + " he is " + slyLevel);
     }
 
-    public boolean feedPet(boolean feedingTime) {
+    public boolean feedPet(Pet pet, boolean feedingTime) {
         if (feedingTime) {
 
             int rn = Methods.randomNum(1, 99);
 
-            if (this.getFamily().getPet().getTrickLevel() > rn) {
-                System.out.println("Hm... I will feed " + this.getFamily().getPet().getNickname());
+            if (pet.getTrickLevel() > rn) {
+                System.out.println("Hm... I will feed " + pet.getNickname());
                 return true;
             } else {
-                System.out.println("I think " + this.getFamily().getPet().getNickname() + "is not hungry");
+                System.out.println("I think " + pet.getNickname() + "is not hungry");
                 return false;
             }
 
         } else {
-            System.out.println("I think " + this.getFamily().getPet().getNickname() + "is not hungry");
+            System.out.println("I think " + pet.getNickname() + "is not hungry");
             return false;
         }
 

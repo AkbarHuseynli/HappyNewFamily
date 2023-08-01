@@ -5,10 +5,15 @@
  */
 package readme;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import static species.Species.DOG;
 import species.Dog;
+import species.DomesticCat;
 import species.Fish;
 
 /**
@@ -23,14 +28,16 @@ public class Main {
         Human father = new Man("Jack", "Diar", 30);
         Human son = new Man("Jony", "Diar", 6);
         Human daughter = new Woman("Hannah", "Diar", 8);
-        Human[] children = {son, daughter};
+        List<Human> children = new ArrayList<>();
+
         Pet pet = new Dog();
-        
+        Pet pet2 = new DomesticCat();
+        HashSet<Pet> pets = new HashSet<>();
+
         Family diars = new Family(mother, father);
         diars.setChildren(children);
-        diars.setPet(pet);
+        diars.setPet(pets);
         diars.bornchild();
-        System.out.println(Arrays.toString(diars.getChildren()));
-//
+        System.out.println(diars.getChildren());
     }
 }

@@ -21,7 +21,7 @@ public class Woman extends Human {
     }
 
     @Override
-    public void greetPet() {
-        System.out.println("Hello" + this.getFamily().getPet().getNickname());
+    public void greetPet(Pet pet) {
+        System.out.println("Hello" + pet.getNickname());
     }
 }

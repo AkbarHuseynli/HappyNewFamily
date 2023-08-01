@@ -6,6 +6,7 @@
 package readme;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  *
@@ -13,11 +14,11 @@ import java.util.Arrays;
  */
 public abstract class Pet {
 
-//    private Species type;
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits;
+    private HashSet<String> habits;
+    
 
     public Pet(String nickname) {
         this.nickname = nickname;
@@ -61,13 +62,14 @@ public abstract class Pet {
         }
     }
 
-    public String[] getHabits() {
+    public HashSet<String> getHabits() {
         return habits;
     }
 
-    public void setHabits(String[] habits) {
+    public void setHabits(HashSet<String> habits) {
         this.habits = habits;
     }
+
 
     public void eat() {
         System.out.println("I'm eating");
@@ -77,7 +79,11 @@ public abstract class Pet {
     
 
     public abstract void foul();
-    
+
+    @Override
+    public String toString() {
+        return "Pet{" + "nickname=" + nickname + ", age=" + age + ", trickLevel=" + trickLevel + ", habits=" + habits + '}';
+    }
 
     @Override
     protected void finalize() throws Throwable {

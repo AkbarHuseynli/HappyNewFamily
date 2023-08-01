@@ -1,6 +1,8 @@
 package readme;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import util.Methods;
 
 /*
@@ -16,8 +18,8 @@ public class Family implements HumanCreator {
 
     private final Human mother;
     private final Human father;
-    private Human[] children;
-    private Pet pet;
+    private List<Human> children;
+    private HashSet<Pet> pet;
 
     static {
         System.out.println("New Family class is being loaded!");
@@ -42,48 +44,33 @@ public class Family implements HumanCreator {
         return father;
     }
 
-    public Human[] getChildren() {
+    public List<Human> getChildren() {
         return children;
     }
 
-    public void setChildren(Human[] children) {
+    public void setChildren(List<Human> children) {
         this.children = children;
     }
 
-    public Pet getPet() {
+    public HashSet<Pet> getPet() {
         return pet;
     }
 
-    public void setPet(Pet pet) {
+    public void setPet(HashSet<Pet> pet) {
         this.pet = pet;
     }
 
     public void addChild(Human child) {
-        int l = this.children.length;
-        Human[] newChildren = Arrays.copyOf(this.children, l + 1);
-
-        newChildren[l] = child;
-        this.children = newChildren;
+        this.children.add(child);
 
     }
 
     public boolean deleteChild(int index) {
         boolean status = false;
-        int l = this.children.length;
-        
-        if (index >= 0 && index < l) {
-            this.children[index] = null;
-            Human[] newChildren = new Human[l - 1];
-            int j = 0;
-            for (int i = 0; i < l; i++) {
-                if (this.children[i] != null) {
-                    newChildren[j] = this.children[i];
-                    j++;
-                }
-
-            }
-            this.children = newChildren;
+        Human child = this.children.get(index);
+        if (this.children.remove(child)) {
             status = true;
+
         }
 
         return status;
@@ -91,24 +78,15 @@ public class Family implements HumanCreator {
 
     public boolean deleteChild(Human child) {
         boolean status = false;
-        int l = this.children.length;
-        for (int i = 0; i < l; i++) {
-            if (children[i].equals(child)) {
-                this.children[i] = null;
-
-                Human temp = this.children[l - 1];
-                this.children[l - 1] = this.children[i];
-                this.children[i] = temp;
-                status = true;
-            }
+        if (this.children.remove(child)) {
+            status = true;
         }
-        this.children = Arrays.copyOf(this.children, l - 1);
 
         return status;
     }
 
     public int countFamily() {
-        int l = this.children.length;
+        int l = this.children.size();
         int x = 0;
         if (this.pet != null) {
             x = 1;
@@ -132,7 +110,7 @@ public class Family implements HumanCreator {
 
     @Override
     public String toString() {
-        return "mother=" + mother.getName() + ", father=" + father.getName() + ", children=" + Arrays.toString(children) + ", pet=" + pet.getNickname();
+        return "mother=" + mother.getName() + ", father=" + father.getName() + ", children=" + children.toString() + ", pet=" + pet.toString();
     }
 
     @Override
