@@ -39,5 +39,6 @@ public class Main {
         diars.setPet(pets);
         diars.bornchild();
         System.out.println(diars.getChildren());
+        ////
     }
 }
