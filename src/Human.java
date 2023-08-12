@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package readme;
+package src;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.Random;
-import util.Methods;
+import src.util.Methods;
 
 /**
  *
@@ -24,7 +22,7 @@ public abstract class Human {
     private String surname;
     private int year;
     private int IQ;
-    private HashMap<DayOfWeek, String>[] schedule;
+    private HashMap<DayOfWeek, String> schedule;
     private Family family;
 
     public Human(String name, String surname, int age) {
@@ -72,11 +70,11 @@ public abstract class Human {
         }
     }
 
-    public HashMap<DayOfWeek, String>[] getSchedule() {
+    public HashMap<DayOfWeek, String> getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(HashMap<DayOfWeek, String>[] schedule) {
+    public void setSchedule(HashMap<DayOfWeek, String> schedule) {
         this.schedule = schedule;
     }
 
@@ -105,7 +103,7 @@ public abstract class Human {
     public boolean feedPet(Pet pet, boolean feedingTime) {
         if (feedingTime) {
 
-            int rn = Methods.randomNum(1, 99);
+            int rn = Methods.generateNum(1, 99);
 
             if (pet.getTrickLevel() > rn) {
                 System.out.println("Hm... I will feed " + pet.getNickname());

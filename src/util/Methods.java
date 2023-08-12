@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package util;
+package src.util;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -14,13 +14,13 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Methods {
 
-    public static int randomNum(int min, int max) {
+    public static int generateNum(int min, int max) {
         int rn = ThreadLocalRandom.current().nextInt(min, max + 1);
 
         return rn;
     }
 
-    public static String randomName(String gender) {
+    public static String generateName(String gender) {
         Random generate = new Random();
         String[] name = {"unknown", "unknown", "unknown"};
         if (gender.equalsIgnoreCase("male")) {

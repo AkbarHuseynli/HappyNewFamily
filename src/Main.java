@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package readme;
+
+package src;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,16 +7,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-import static species.Species.DOG;
-import species.Dog;
-import species.DomesticCat;
-import species.Fish;
 
-/**
- *
- * @author user
- *
- */
+import src.species.Dog;
+import src.species.DomesticCat;
+
+
 public class Main {
 
     public static void main(String[] args) throws Throwable {
@@ -39,6 +30,11 @@ public class Main {
         diars.setPet(pets);
         diars.bornchild();
         System.out.println(diars.getChildren());
+        //         User u = new User();
+//         u.name ="salam necesen?";
+//        User u = (User) FileUtility.readFileDeserialize("test.obj");
+        //FileUtility.writeObjectToFile(u, "test.obj");
+//        System.out.println(u.name);
         ////
     }
 }

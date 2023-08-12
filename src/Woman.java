@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package readme;
+package src;
 
 import java.util.HashMap;
 
@@ -11,19 +11,17 @@ import java.util.HashMap;
  *
  * @author user
  */
-public class Man extends Human {
+public class Woman extends Human {
 
-    public Man(String name, String surname, int age) {
+    public Woman(String name, String surname, int age) {
         super(name, surname, age);
     }
 
-
-    public Man() {
+    public Woman() {
     }
-        
+
     @Override
     public void greetPet(Pet pet) {
         System.out.println("Hello" + pet.getNickname());
     }
-    
 }

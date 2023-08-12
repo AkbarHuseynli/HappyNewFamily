@@ -1,9 +1,10 @@
-package readme;
+package src;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import util.Methods;
+
+import src.dao.HumanCreator;
+import src.util.Methods;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -60,8 +61,8 @@ public class Family implements HumanCreator {
         this.pet = pet;
     }
 
-    public void addChild(Human child) {
-        this.children.add(child);
+    public boolean addChild(Human child) {
+       return this.children.add(child);
 
     }
 
@@ -77,10 +78,7 @@ public class Family implements HumanCreator {
     }
 
     public boolean deleteChild(Human child) {
-        boolean status = false;
-        if (this.children.remove(child)) {
-            status = true;
-        }
+        boolean status = this.children.remove(child);
 
         return status;
     }
@@ -88,18 +86,16 @@ public class Family implements HumanCreator {
     public int countFamily() {
         int l = this.children.size();
         int x = 0;
-        if (this.pet != null) {
-            x = 1;
-        }
-        return l + x + 2;
+        int y = pet.size();
+        return l + x + y;
     }
 
     @Override
     public Human bornchild() {
-        int rn = Methods.randomNum(1, 2);
+        int rn = Methods.generateNum(1, 2);
         Human child = rn == 1 ? new Man() : new Woman();
         String name = rn == 1 ? "male" : "female";
-        child.setName(Methods.randomName(name));
+        child.setName(Methods.generateName(name));
         child.setSurname(this.getFather().getSurname());
         child.setIQ((this.getFather().getIQ() + this.getMother().getIQ()) / 2);
         child.setAge(0);
@@ -114,7 +110,7 @@ public class Family implements HumanCreator {
     }
 
     @Override
-    protected void finalize() throws Throwable {
+    protected void finalize(){
         System.out.println("FAMILY CLEANUP ");
     }
 

@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package species;
+package src.species;
 
-import readme.Pet;
+import src.Pet;
 
 /**
  *
  * @author user
  */
-public class RoboCat extends Pet{
-
+public class Dog extends Pet{
 
     @Override
     public void respond() {
@@ -24,7 +23,7 @@ public class RoboCat extends Pet{
 
     @Override
     public String toString() {
-        return "RoboCat{" + '}';
+        return "Dog{" + '}';
     }
     
 }
