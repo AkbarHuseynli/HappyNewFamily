@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package src.util;
 
 import java.util.Random;
@@ -22,7 +18,7 @@ public class Methods {
 
     public static String generateName(String gender) {
         Random generate = new Random();
-        String[] name = {"unknown", "unknown", "unknown"};
+        String[] name = new String[3];
         if (gender.equalsIgnoreCase("male")) {
             name[0] = "Marcus";
             name[1] = "Ali";

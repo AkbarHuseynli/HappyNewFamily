@@ -5,7 +5,7 @@
  */
 package src.species;
 
-import src.Pet;
+import src.entities.Pet;
 
 /**
  *

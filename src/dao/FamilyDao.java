@@ -1,33 +1,47 @@
 package src.dao;
 
-import src.Family;
-import src.Human;
-import src.Pet;
+import src.entities.Family;
+import src.entities.Human;
+import src.entities.Pet;
 
 import java.util.List;
 
 public interface FamilyDao {
-     public abstract List<Family> getAllFamilies();
-     public abstract Family getFamilyByIndex(int index);
-     public abstract boolean deleteFamily(int index);
-     public abstract boolean deleteFamily(Family fam);
-     public abstract boolean saveFamily(Family fam);
-     public abstract void displayAllFamilies();
-     public abstract void getFamiliesBiggerThan(int index);
-     public abstract void getFamiliesLessThan(int index);
-     public abstract int countFamiliesWithMemberNumber(int memberCount);
-     public abstract Family createNewFamily(Human mother, Human father);
-     public abstract boolean deleteFamilyByIndex(int index);
-     public abstract Family bornChild(Family fam);
-     public abstract Family adoptChild(Family fam, Human child);
-     public abstract boolean deleteAllChildrenOlderThen(int age);
-     public abstract Family getFamilyById(int id);
-     public abstract List<Pet> getPets(int famIndex);
-     public abstract boolean addPet(int famIndex, Pet pet);
+    List<Family> getAllFamilies();
 
-     public abstract int count();
+    boolean deleteFamily(int index);
 
+    boolean deleteFamily(Family fam);
 
+    boolean saveFamily(Family fam);
+
+    //-------------------------
+
+    void displayAllFamilies();
+
+    List<Family> getFamiliesBiggerThan(int index);
+
+    List<Family> getFamiliesLessThan(int index);
+
+    void countFamiliesWithMemberNumber();
+
+    Family createNewFamily(Human mother, Human father);
+
+    boolean deleteFamilyByIndex(int index);
+
+    Family bornChild(Family fam);
+
+    Family adoptChild(Family fam, Human child);
+
+    void deleteAllChildrenOlderThen(int age);
+
+    Family getFamilyById(int id);
+
+    List<Pet> getPets(int famIndex);
+
+    boolean addPet(int famIndex, Pet pet);
+
+    int count();
 
 
 }

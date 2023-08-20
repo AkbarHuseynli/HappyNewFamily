@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src;
+package src.entities;
 
 import java.util.HashMap;
 import java.util.Objects;
+
+import src.DayOfWeek;
 import src.util.Methods;
 
 /**
