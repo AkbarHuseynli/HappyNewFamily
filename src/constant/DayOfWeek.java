@@ -1,5 +1,5 @@
 
-package src;
+package src.constant;
 
 
 public enum DayOfWeek {

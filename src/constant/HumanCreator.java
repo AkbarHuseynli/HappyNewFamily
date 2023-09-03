@@ -1,5 +1,5 @@
 
-package src.dao;
+package src.constant;
 
 import src.entities.Human;
 

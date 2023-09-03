@@ -3,7 +3,7 @@ package src.entities;
 import java.util.HashSet;
 import java.util.List;
 
-import src.dao.HumanCreator;
+import src.constant.HumanCreator;
 import src.util.Methods;
 
 public class Family implements HumanCreator {

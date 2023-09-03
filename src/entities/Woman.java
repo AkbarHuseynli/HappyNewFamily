@@ -6,7 +6,6 @@
 package src.entities;
 
 /**
- *
  * @author user
  */
 public class Woman extends Human {

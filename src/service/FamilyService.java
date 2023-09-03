@@ -1,4 +1,4 @@
-package src.dao;
+package src.service;
 
 import src.entities.Family;
 import src.entities.Human;
@@ -6,7 +6,7 @@ import src.entities.Pet;
 
 import java.util.List;
 
-public interface FamilyDao {
+public interface FamilyService  {
     List<Family> getAllFamilies();
 
     boolean deleteFamily(int index);

@@ -16,7 +16,7 @@ public class FileUtility {
         try (
                 FileWriter fw = new FileWriter(fileName); // writes into File called  
                 BufferedWriter bw = new BufferedWriter(fw) //buffer wall among the stuff
-                ) {
+        ) {
 
             bw.write(text);
 
@@ -47,8 +47,8 @@ public class FileUtility {
 
     public static String readFile(String fileName) throws IOException {
         try (InputStream in = new FileInputStream(fileName);
-                InputStreamReader read = new InputStreamReader(in);
-                BufferedReader reader = new BufferedReader(read)) {
+             InputStreamReader read = new InputStreamReader(in);
+             BufferedReader reader = new BufferedReader(read)) {
             String line;
             String result = "";
             while ((line = reader.readLine()) != null) result += line + "\n";
@@ -56,7 +56,7 @@ public class FileUtility {
         }
     }
 
-    public static byte[] byteRead(String fileName) throws Exception{
+    public static byte[] byteRead(String fileName) throws Exception {
         File file = new File(fileName);
 
         try (FileInputStream in = new FileInputStream(file);) {
@@ -66,7 +66,7 @@ public class FileUtility {
         } finally {
             System.out.println("METHOD WILL DO ITS DUTY WHETHER EXCEPTION WILL OCCUR OR NOT!");
         }
-        
+
         //to get result use to string method to convert byte array into string
 
     }
@@ -95,24 +95,31 @@ public class FileUtility {
 
     }
 
-    public static void writeObjectToFile(Object object, String name) throws Exception {
-        try(
-               FileOutputStream fout = new FileOutputStream(name); 
-        ObjectOutputStream oos = new ObjectOutputStream(fout);){
-        oos.writeObject(object);
-        } 
+    public static boolean writeObjectToFile(Object object, String name) throws Exception {
+        try (
+                FileOutputStream fout = new FileOutputStream(name);
+                ObjectOutputStream oos = new ObjectOutputStream(fout))
+        {
+            oos.writeObject(object);
+            if (oos != null) {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
+
     public static String readByScanner(File fileName) {
-        try(Scanner sc = new Scanner(fileName)){
+        try (Scanner sc = new Scanner(fileName)) {
 
-        String result = "";
-        while(sc.hasNext()){
-            result+= sc.nextLine()+"\n";
+            String result = "";
+            while (sc.hasNext()) {
+                result += sc.nextLine() + "\n";
 
-        }
+            }
             return result;
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             System.err.println("EXCEPTION OCCURED WHILE READING");
             return null;
         }
@@ -121,7 +128,6 @@ public class FileUtility {
         //FileUtility.writeObjectToFile(u, "test.obj");
 
     }
-    
-    
+
 
 }

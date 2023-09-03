@@ -8,7 +8,7 @@ package src.entities;
 import java.util.HashMap;
 import java.util.Objects;
 
-import src.DayOfWeek;
+import src.constant.DayOfWeek;
 import src.util.Methods;
 
 /**
